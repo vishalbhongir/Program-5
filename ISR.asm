@@ -5,7 +5,7 @@
 ; Checks for a valid RNA symbol and places it at x4600
 .ORIG x2600
 
-loop	LDI R0, KBSR
+loop	LDI R0, KBSR		;start of the loop
 	BRp loop
 	LDI R0, KBDR
 	
