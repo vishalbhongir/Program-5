@@ -1,6 +1,6 @@
 ; Main.asm
-; Name:
-; UTEid: 
+; Name: ARJUN SHARMA
+; UTEid: APS2649
 ; Continuously reads from x4600 making sure its not reading duplicate
 ; symbols. Processes the symbol based on the program description
 ; of mRNA processing.
@@ -22,8 +22,8 @@
 
 ; start of actual program
 				;start code (look for AUG)
-loop1	LDI R0, Buffer
-	BRz loop1
+loop	LDI R0, Buffer
+	BRz loop
 	TRAP x21
 	AND R1, R1, #0
 	STI R1, Buffer
@@ -35,20 +35,20 @@ loop1	LDI R0, Buffer
 	LD R1, g
 	ADD R1, R1, R0
 	BRz checku
-	BRnzp loop1
+	BRnzp loop
 
 checku
 	LDR R4, R6, #1
 	LD R1, u
 	ADD R1, R1, R4
 	BRz checka
-	BRnzp loop1
+	BRnzp loop
 
 checka
 	LDR R4, R6, #2
 	LD R1, a
 	ADD R1, R1, R4
-	BRnp loop1
+	BRnp loop
 
 	LD R0, line
 	TRAP x21
@@ -123,8 +123,3 @@ g	.FILL x-47
 u	.FILL x-55
 line	.FILL x7C
 		.END
-
-
-
-
-
