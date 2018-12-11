@@ -22,8 +22,8 @@
 
 ; start of actual program
 				;start code (look for AUG)
-loop	LDI R0, Buffer
-	BRz loop
+loop1	LDI R0, Buffer
+	BRz loop1
 	TRAP x21
 	AND R1, R1, #0
 	STI R1, Buffer
@@ -35,20 +35,20 @@ loop	LDI R0, Buffer
 	LD R1, g
 	ADD R1, R1, R0
 	BRz checku
-	BRnzp loop
+	BRnzp loop1
 
 checku
 	LDR R4, R6, #1
 	LD R1, u
 	ADD R1, R1, R4
 	BRz checka
-	BRnzp loop
+	BRnzp loop1
 
 checka
 	LDR R4, R6, #2
 	LD R1, a
 	ADD R1, R1, R4
-	BRnp loop
+	BRnp loop1
 
 	LD R0, line
 	TRAP x21
